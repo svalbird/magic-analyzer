@@ -13,7 +13,8 @@
     "server:watch": "nodemon server/index.ts",
     "test": "jest --watch --noStackTrace",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
+    "format": "prettier -w '**/*.{js,jsx,ts,tsx}'",
+    "knex": "knex --knexfile ./server/db/knexfile.js"
   },
   "babel": {
     "presets": [
@@ -72,6 +73,8 @@
   },
   "dependencies": {
     "express": "^4.17.2",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.4",
     "ts-node": "^10.9.1"
   },
   "prettier": {
