@@ -26,22 +26,30 @@ async function loadDeck(deckName: string, db = connection) {
 //INTERNAL FUNCTIONS
 function formatDeckToArray(deck: string) {
   const newlineSplit: string[] = deck.split(/\r?\n/).slice(1)
-  const deckObject: any = []
-  for (card of newlineSplit) {
-    const dicedCard = card.split()
+  const deckObject: object[] = []
+  for (const card of newlineSplit) {
+    const dicedCard = card.split('')
     const cardQty = Number(dicedCard[0])
     const cardName = dicedCard.slice(2).join()
-    deckObject.push({ name: cardName, qty: cardQty })
+    const cardObject: { name: string; qty: number } = {
+      name: cardName,
+      qty: cardQty,
+    }
+    deckObject.push(cardObject)
   }
-  return deckObject
+  return deckObject as { name: string; qty: number }[]
 }
 
-async function addDeckToDb(deckName: string, deckObject: any, db = connection) {
+async function addDeckToDb(
+  deckName: string,
+  deckObject: { name: string; qty: number }[],
+  db = connection
+) {
   const deckId = await db('decks').insert({ name: deckName }).returning('id')[0]
-  for (card of deckObject) {
+  for (let i = 0; i < deckObject.length; i++) {
     await db('cards').insert({
-      name: card.name,
-      quantity: card.qty,
+      name: deckObject[i].name,
+      quantity: deckObject[i].qty,
       deckId: deckId,
     })
   }
