@@ -9,6 +9,10 @@ module.exports = {
     },
     pool: {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
+      idleTimeoutMillis: 120000,
+      acquireTimeoutMillis: 120000,
+      createTimeoutMillis: 120000,
+      propagateCreateError: false,
     },
   },
 
