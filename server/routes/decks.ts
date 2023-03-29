@@ -1,5 +1,5 @@
-import express, { Router } from 'express'
-import { extractDeck } from '../dataHandler'
+import express from 'express'
+import { extractDeck, loadFullDeck } from '../dataHandler'
 
 const router = express.Router()
 
@@ -25,8 +25,8 @@ router.post('/import', async (req, res) => {
 router.get('/:deckname', async (req, res) => {
   try {
     const deckName = req.params.deckname
-    // load full deck from db function here
-    // output deck json object
+    const { deck } = await loadFullDeck(deckName)
+    res.json({ deck, isSuccess: true })
   } catch (error) {
     console.log(error)
     res.status(500).json({

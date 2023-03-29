@@ -5,7 +5,7 @@ const connection = require('knex')(config)
 
 const imports = './server/imports/'
 
-//EXTERNAL FUNCTIONS
+//EXTERNAL FUNCTIONS (called by api)
 async function extractDeck(deckName: string, deckPath = imports) {
   const deck = await fs.readFile(`${deckPath}${deckName}.txt`, 'utf-8')
   const deckObject = formatDeckToArray(deck)
@@ -22,17 +22,17 @@ async function loadDeck(deckName: string, db = connection) {
 }
 
 async function loadFullDeck(deckName: string, db = connection) {
-  const deckId = await db('decks')
-    .where({ name: deckName })
-    .returning('id')
-    .first().id
+  const deckId = await db('decks').where({ name: deckName }).returning('id')
+  const trueDeckId = deckId[0].id
+  const loadedDeck = await db('cards')
+    .whereLike('deckId', trueDeckId)
+    .join('infos', 'cards.name', '=', 'infos.name')
+    .groupBy('infos.name')
 
-  //join statement goes here
-  //return shape is from cardFull
-  //{deckName, [card objects]}
+  return { deckName: deckName, deck: loadedDeck }
 }
 
-//INTERNAL FUNCTIONS
+//INTERNAL FUNCTIONS (called by other db functions)
 function formatDeckToArray(deck: string) {
   const newlineSplit: string[] = deck.split(/\r?\n/).slice(1)
   const deckObject: object[] = []
@@ -66,4 +66,4 @@ async function addDeckToDb(
   return { deckId: trueDeckId }
 }
 
-export { extractDeck, loadDeck }
+export { extractDeck, loadDeck, loadFullDeck }
