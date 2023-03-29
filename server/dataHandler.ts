@@ -1,4 +1,3 @@
-const { default: knex } = require('knex')
 const fs = require('node:fs/promises')
 
 const config = require('./db/knexfile').development
