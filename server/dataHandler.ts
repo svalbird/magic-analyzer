@@ -21,6 +21,17 @@ async function loadDeck(deckName: string, db = connection) {
   return await db('cards').where({ deckId: deckId })
 }
 
+async function loadFullDeck(deckName: string, db = connection) {
+  const deckId = await db('decks')
+    .where({ name: deckName })
+    .returning('id')
+    .first().id
+
+  //join statement goes here
+  //return shape is from cardFull
+  //{deckName, [card objects]}
+}
+
 //INTERNAL FUNCTIONS
 function formatDeckToArray(deck: string) {
   const newlineSplit: string[] = deck.split(/\r?\n/).slice(1)
