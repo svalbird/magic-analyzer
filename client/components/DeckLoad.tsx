@@ -1,4 +1,4 @@
-import { Flex, Dropdown, DropdownItem, Button, Card } from '@tremor/react'
+import { Dropdown, DropdownItem, Button, Card } from '@tremor/react'
 
 function DeckLoad() {
   return (

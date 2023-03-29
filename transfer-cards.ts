@@ -1,7 +1,5 @@
 import fs from 'fs'
 import JSONStream from 'JSONStream'
-import knex from 'knex'
-import { brotliDecompress } from 'zlib'
 const config = require('./server/db/knexfile').development
 const connection = require('knex')(config)
 
