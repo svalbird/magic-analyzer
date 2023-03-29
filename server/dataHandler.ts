@@ -12,15 +12,6 @@ async function extractDeck(deckName: string, deckPath = imports) {
   return await addDeckToDb(deckName, deckObject)
 }
 
-async function loadDeck(deckName: string, db = connection) {
-  const deckId = await db('decks')
-    .where({ name: deckName })
-    .returning('id')
-    .first().id
-
-  return await db('cards').where({ deckId: deckId })
-}
-
 async function loadFullDeck(deckName: string, db = connection) {
   const deckId = await db('decks').where({ name: deckName }).returning('id')
   const trueDeckId = deckId[0].id
@@ -66,4 +57,4 @@ async function addDeckToDb(
   return { deckId: trueDeckId }
 }
 
-export { extractDeck, loadDeck, loadFullDeck }
+export { extractDeck, loadFullDeck }
