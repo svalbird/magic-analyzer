@@ -79,3 +79,5 @@ function DeckInfo() {
     </div>
   )
 }
+
+export default DeckInfo

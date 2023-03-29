@@ -19,7 +19,6 @@ function verifyProperty(obj: any, newObj: any, prop: string, propAlt?: string) {
   }
 }
 
-const chunkSize = 250
 const fileLines = 81146
 const chunk: any[] = []
 async function insertChunk() {
@@ -89,7 +88,7 @@ async function parseFile() {
       newCard.keywords = data.keywords.join(',')
     }
     chunk.push(newCard)
-    if (counter === 81146) {
+    if (counter === fileLines) {
       insertChunk()
     }
     newCard = {}

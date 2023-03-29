@@ -4,14 +4,13 @@ const fs = require('node:fs/promises')
 const config = require('./db/knexfile').development
 const connection = require('knex')(config)
 
+const imports = './server/imports/'
+
 //EXTERNAL FUNCTIONS
-async function extractDeck(deckName: string, deckPath: string) {
-  if (deckPath === '') {
-    deckPath = './testSet/'
-  }
-  const deck = await fs.readFile(`${deckPath}${deckName}.txt`)
+async function extractDeck(deckName: string, deckPath = imports) {
+  const deck = await fs.readFile(`${deckPath}${deckName}.txt`, 'utf-8')
   const deckObject = formatDeckToArray(deck)
-  await addDeckToDb(deckName, deckObject)
+  return await addDeckToDb(deckName, deckObject)
 }
 
 async function loadDeck(deckName: string, db = connection) {
@@ -30,7 +29,7 @@ function formatDeckToArray(deck: string) {
   for (const card of newlineSplit) {
     const dicedCard = card.split('')
     const cardQty = Number(dicedCard[0])
-    const cardName = dicedCard.slice(2).join()
+    const cardName = dicedCard.slice(2).join('')
     const cardObject: { name: string; qty: number } = {
       name: cardName,
       qty: cardQty,
@@ -45,14 +44,16 @@ async function addDeckToDb(
   deckObject: { name: string; qty: number }[],
   db = connection
 ) {
-  const deckId = await db('decks').insert({ name: deckName }).returning('id')[0]
+  const deckId = await db('decks').insert({ name: deckName }).returning('id')
+  const trueDeckId = deckId[0].id
   for (let i = 0; i < deckObject.length; i++) {
     await db('cards').insert({
       name: deckObject[i].name,
       quantity: deckObject[i].qty,
-      deckId: deckId,
+      deckId: trueDeckId,
     })
   }
+  return { deckId: trueDeckId }
 }
 
 export { extractDeck, loadDeck }
