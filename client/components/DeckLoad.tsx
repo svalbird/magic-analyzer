@@ -1,19 +1,31 @@
 import { Dropdown, DropdownItem, Button, Card } from '@tremor/react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import useFetchListDecks from './hooks/useFetchListDecks'
 
 function DeckLoad() {
+  const { deckList, loading, error, fetchListDecks } = useFetchListDecks()
+  const [deckName, setDeckName] = useState('')
+  const navigate = useNavigate()
+
+  const routeChange = () => {
+    const path = deckName
+    navigate(path)
+  }
+
   return (
-    <div className="deckLoad">
+    <div className="deckLoad fixed">
       <Card>
         <Dropdown
-          onValueChange={(value) => console.log('The selected value is', value)}
+          onValueChange={(value) => setDeckName(value)}
           placeholder="Select deck..."
         >
-          <DropdownItem value="Cool Blue" text={'Cool Blue'} />
-          <DropdownItem value="Red Aggro" text={'Red Aggro'} />
-          <DropdownItem value="Green Ramp" text={'Green Ramp'} />
+          {deckList.map((deck, index) => {
+            return <DropdownItem value={deck} text={deck} key={index} />
+          })}
         </Dropdown>
         <div className="pt-2">
-          <Button size="xs" onClick={() => console.log('clicked')}>
+          <Button size="xs" onClick={routeChange}>
             Load Deck
           </Button>
         </div>

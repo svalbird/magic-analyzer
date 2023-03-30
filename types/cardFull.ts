@@ -24,6 +24,35 @@ export interface cardFull {
   price_usd: string
 }
 
+export interface cardInDeck {
+  unique_id: string
+  oracle_id: string
+  name: string
+  uri: string
+  description?: string
+  image_small?: string
+  image_normal?: string
+  image_large?: string
+  art_crop?: string
+  mana_cost?: string
+  cmc?: number
+  type_line?: string
+  oracle_text?: string
+  power?: string
+  toughness?: string
+  color_id?: string
+  keywords?: string
+  set_name?: string
+  rarity?: string
+  flavor_text?: string
+  artist?: string
+  edhrec_rank?: number
+  price_usd?: string
+  quantity: number
+  deckId: number
+  lang: string
+}
+
 /* table.increments('id').primary()
     table.string('unique_id')
     table.string('oracle_id')

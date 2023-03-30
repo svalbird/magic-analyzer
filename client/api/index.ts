@@ -11,8 +11,17 @@ export function importDeck(deckName: string): Promise<number> {
 
 export function loadDeck(
   deckName: string
-): Promise<{ cardName: string; deck: any[] }> {
+): Promise<{ deckName: string; deck: any[] }> {
   return request.get(`/v1/decks/${deckName}`).then((res) => {
     return res.body
+  })
+}
+
+export function loadAllDecks(): Promise<string[]> {
+  return request.get('v1/decks/alldecks').then((res) => {
+    const deckList = res.body
+    const output: string[] = []
+    deckList.map((deck: { name: string }) => output.push(deck.name))
+    return output
   })
 }

@@ -1,32 +1,61 @@
-import { Card, Flex, Title, Text } from '@tremor/react'
+import { Card, Flex, Title, Text, Badge } from '@tremor/react'
+import { useEffect, useState } from 'react'
+import { cardInDeck } from '../../types/cardFull'
+interface Props {
+  deck: cardInDeck[]
+  cardname: string
+}
 
-function CardDisplay() {
+function CardDisplay(props: Props) {
+  let currentCard: cardInDeck | false = false
+
+  currentCard = props.deck.find((card) => {
+    return card.name === props.cardname
+  }) as cardInDeck
+
+  if (!currentCard) {
+    return (
+      <div>
+        <Card className="h-full"></Card>
+      </div>
+    )
+  }
   return (
     <div>
       <Card className="h-full">
         {/* style={{ height: 860 }} */}
-        <img
-          src="https://cards.scryfall.io/large/front/8/0/8059c52b-5d25-4052-b48a-e9e219a7a546.jpg?1594736914"
-          alt=""
-        />
+        <img src={currentCard?.image_large} alt="" />
         <Flex className="pt-6">
-          <Title>Colossal Dreadmaw</Title>
-          <Text>4GG</Text>
+          <Title>{currentCard?.name}</Title>
+          <Text>{currentCard?.mana_cost}</Text>
         </Flex>
         <Text>
-          <i>Creature - Dinosaur</i>
+          <i>{currentCard?.type_line}</i>
         </Text>
-        <Text>
-          If a player would draw a card except the first one they draw in each
-          of their draw steps, that player discards a card instead. If the
-          player discards a card this way, they draw a card. If the player
-          doesn’t discard a card this way, they mill a card.
-        </Text>
-        <Text>
-          <b>
-            <i>6/6</i>
-          </b>
-        </Text>
+        <Text>{currentCard.oracle_text}</Text>
+        {currentCard?.power && (
+          <Text>
+            <b>
+              <i>{`${currentCard?.power}/${currentCard?.toughness}`}</i>
+            </b>
+          </Text>
+        )}
+        {currentCard?.flavor_text && (
+          <Text>
+            <i>{currentCard?.flavor_text}</i>
+          </Text>
+        )}
+        {currentCard?.edhrec_rank && (
+          <Badge
+            size="sm"
+            className="pt-6"
+          >{`EDHRec Rank : ${currentCard?.edhrec_rank}`}</Badge>
+        )}
+        {currentCard?.price_usd && (
+          <Badge color="green" size="sm" className="pt-6">
+            {`USD: $${currentCard?.price_usd}`}
+          </Badge>
+        )}
       </Card>
     </div>
   )

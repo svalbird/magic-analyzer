@@ -23,6 +23,10 @@ async function loadFullDeck(deckName: string, db = connection) {
   return { deckName: deckName, deck: loadedDeck }
 }
 
+async function loadListOfDecks(db = connection) {
+  return await db('decks').select('name')
+}
+
 //INTERNAL FUNCTIONS (called by other db functions)
 function formatDeckToArray(deck: string) {
   const newlineSplit: string[] = deck.split(/\r?\n/).slice(1)
@@ -57,4 +61,4 @@ async function addDeckToDb(
   return { deckId: trueDeckId }
 }
 
-export { extractDeck, loadFullDeck }
+export { extractDeck, loadFullDeck, loadListOfDecks }

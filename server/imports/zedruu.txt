@@ -1,0 +1,92 @@
+Mainboard
+1 Aggressive Mining
+1 Akroan Horse
+1 Angel of Destiny
+1 Approach of the Second Sun
+1 Arcane Denial
+1 Arcane Lighthouse
+1 Arcane Signet
+1 Assemble the Legion
+1 Azorius Chancery
+1 Baird, Steward of Argive
+1 Banishing Light
+1 Bazaar Trader
+1 Bronze Bombshell
+1 Chromeshell Crab
+1 Cinder Giant
+1 Command Tower
+1 Counterspell
+1 Curse of Exhaustion
+1 Curse of Opulence
+1 Curse of Verbosity
+1 Daring Thief
+1 Darksteel Mutation
+1 Doomskar
+1 Dream Trawler
+1 Evolving Wilds
+1 Exotic Orchard
+1 Felidar Sovereign
+1 Fog Bank
+1 Form of the Dragon
+1 Ghostly Prison
+1 Glacial Fortress
+1 Grasp of Fate
+1 Grid Monitor
+1 Hall of Heliod's Generosity
+1 Harmless Offering
+1 Homeward Path
+1 Humble Defector
+1 Imprisoned in the Moon
+4 Island
+1 Izzet Boilerworks
+1 Kher Keep
+1 Kwain, Itinerant Meddler
+1 Maze of Ith
+1 Mistveil Plains
+4 Mountain
+1 Myriad Landscape
+1 Mystic Monastery
+1 Nadir Kraken
+1 Narset, Parter of Veils
+1 Nine Lives
+1 Niv-Mizzet, Parun
+1 Niv-Mizzet, the Firemind
+1 Oblivion Ring
+1 Paradox Haze
+1 Pendant of Prosperity
+4 Plains
+1 Propaganda
+1 Psychosis Crawler
+1 Puca's Mischief
+1 Pyromancer's Swath
+1 Raugrin Triome
+1 Ravenform
+1 Reliquary Tower
+1 Robe of Mirrors
+1 Role Reversal
+1 Rust Elemental
+1 Skyclave Relic
+1 Sol Ring
+1 Sphere of Safety
+1 Stasis Snare
+1 Statecraft
+1 Steel Golem
+1 Sudden Substitution
+1 Sulfur Falls
+1 Supreme Verdict
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Temple of Enlightenment
+1 Temple of Epiphany
+1 Temple of the False God
+1 Terramorphic Expanse
+1 Thought Vessel
+1 Thriving Bluff
+1 Thriving Heath
+1 Thriving Isle
+1 Time Wipe
+1 Trading Post
+1 Vedalken Plotter
+1 Wall of Denial
+1 Windborn Muse
+1 Zedruu the Greathearted

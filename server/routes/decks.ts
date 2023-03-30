@@ -1,5 +1,5 @@
 import express from 'express'
-import { extractDeck, loadFullDeck } from '../dataHandler'
+import { extractDeck, loadFullDeck, loadListOfDecks } from '../dataHandler'
 
 const router = express.Router()
 
@@ -22,11 +22,24 @@ router.post('/import', async (req, res) => {
   }
 })
 
+router.get('/alldecks', async (req, res) => {
+  try {
+    const decks = await loadListOfDecks()
+    res.json(decks)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({
+      status: `Request failed: list of decks could not be loaded!`,
+      isSuccess: false,
+    })
+  }
+})
+
 router.get('/:deckname', async (req, res) => {
   try {
     const deckName = req.params.deckname
     const { deck } = await loadFullDeck(deckName)
-    res.json({ deck, isSuccess: true })
+    res.json({ deck, isSuccess: true, deckName: deckName })
   } catch (error) {
     console.log(error)
     res.status(500).json({

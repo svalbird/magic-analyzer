@@ -1,0 +1,80 @@
+Mainboard
+1 Acidic Slime
+1 Akroan Horse
+1 Amphin Mutineer
+1 Arcane Signet
+1 Archetype of Endurance
+1 Beast Within
+1 Bramble Sovereign
+1 Brutalizer Exarch
+1 Carven Caryatid
+1 Castle Garenbrig
+1 Castle Vantress
+1 Chemister's Insight
+1 Cloud of Faeries
+1 Collector Ouphe
+1 Command Beacon
+1 Command Tower
+1 Courser of Kruphix
+1 Cryptic Trilobite
+1 Cultivate
+1 Curse of the Swine
+1 Dawnglade Regent
+1 Diluvian Primordial
+1 Duplicant
+1 Endless One
+1 Fact or Fiction
+1 Farseek
+1 Feasting Troll King
+1 Fierce Empath
+1 Filigree Familiar
+1 Flood of Tears
+12 Forest
+1 Frost Titan
+1 Grazing Gladehart
+1 Great Oak Guardian
+1 Guardian Project
+1 Harrow
+1 Homeward Path
+1 Hornet Queen
+1 Imprisoned in the Moon
+1 Insidious Will
+11 Island
+1 Kodama's Reach
+1 Lightning Greaves
+1 Lotus Cobra
+1 Man-o'-War
+1 Mosswort Bridge
+1 Myr Battlesphere
+1 Mystic Sanctuary
+1 Pathbreaker Ibex
+1 Pelakka Wurm
+1 Pilgrim's Eye
+1 Psychosis Crawler
+1 Rampant Growth
+1 Ravenform
+1 Rimewood Falls
+1 Ruin Crab
+1 Satyr Wayfinder
+1 Seasons Past
+1 Simic Guildgate
+1 Sol Ring
+1 Solemn Simulacrum
+1 Sphinx of Uthuun
+1 Sporemound
+1 Swan Song
+1 Sweet-Gum Recluse
+1 Swiftfoot Boots
+1 Temur Sabertooth
+1 Terastodon
+1 Thornwood Falls
+1 Thought Sponge
+1 Ulvenwald Hydra
+1 Veil of Summer
+1 Volo, Guide to Monsters
+1 Voracious Greatshark
+1 Wall of Blossoms
+1 War Room
+1 Windfall
+1 Wonder
+1 Woodland Stream
