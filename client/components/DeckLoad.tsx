@@ -14,7 +14,7 @@ function DeckLoad() {
   }
 
   return (
-    <div className="deckLoad fixed">
+    <div className="deckLoad absolute">
       <Card>
         <Dropdown
           onValueChange={(value) => setDeckName(value)}
@@ -24,12 +24,12 @@ function DeckLoad() {
             return <DropdownItem value={deck} text={deck} key={index} />
           })}
         </Dropdown>
-        <div className="pt-2">
+        <div>
           <Button size="xs" onClick={routeChange}>
             Load Deck
           </Button>
         </div>
-        <div className="pt-2">
+        <div>
           <Button size="xs" onClick={() => console.log('clicked')} color="gray">
             Import Deck...
           </Button>

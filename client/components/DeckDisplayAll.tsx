@@ -43,7 +43,7 @@ function DeckDisplayAll() {
         {/* KPI sidebar */}
         <Col numColSpanLg={2}>
           <div className="space-y-6">
-            <ColorProps />
+            <ColorProps deck={deck} />
             <LandProps />
             <ManaCurve />
           </div>

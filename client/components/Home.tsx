@@ -35,7 +35,6 @@ function Home() {
           size="xs"
           onClick={() => console.log('clicked')}
           color="gray"
-          className="flex-auto justify-items-center justify-around"
           icon={ArrowDownTrayIcon}
         >
           Import Deck...

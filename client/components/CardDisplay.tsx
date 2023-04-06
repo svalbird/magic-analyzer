@@ -22,7 +22,7 @@ function CardDisplay(props: Props) {
   }
   return (
     <div>
-      <Card className="h-full">
+      <Card className="sticky">
         {/* style={{ height: 860 }} */}
         <img src={currentCard?.image_large} alt="" />
         <Flex className="pt-6">
@@ -48,11 +48,11 @@ function CardDisplay(props: Props) {
         {currentCard?.edhrec_rank && (
           <Badge
             size="sm"
-            className="pt-6"
+            className="mt-6"
           >{`EDHRec Rank : ${currentCard?.edhrec_rank}`}</Badge>
         )}
         {currentCard?.price_usd && (
-          <Badge color="green" size="sm" className="pt-6">
+          <Badge color="green" size="sm">
             {`USD: $${currentCard?.price_usd}`}
           </Badge>
         )}
